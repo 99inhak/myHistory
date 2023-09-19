@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LoginPage</title>
+</head>
+<body>
+<script>
+// 새로고침 시 뒤로가기 누적 안되게 하기
+window.onload = function() {
+    history.replaceState("", "");
+    window.onpopstate = function() {
+        history.replaceState("", "");
+    };
+};
+
+</script>
+<form action="/LoginPro" method="post">
+    <label for="id">아이디:</label><br>
+    <input type="text" id="id" name="id"><br>
+    <label for="password">비밀번호:</label><br>
+    <input type="password" id="password" name="password"><br>
+    <input type="submit" value="로그인">
+</form>
+<p th:text="${errorMessage}"></p>
+</body>
+</html>

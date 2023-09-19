@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LoggedInMainPage</title>
+</head>
+<body>
+<script>
+// 새로고침 시 뒤로가기 누적 안되게 하기
+window.onload = function() {
+    history.replaceState("", "");
+    window.onpopstate = function() {
+        history.replaceState("", "");
+    };
+};
+</script>
+<button onclick="location.href='/LogOutPro'">로그아웃</button>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/MainPageCSS.css">
+    <meta charset="UTF-8">
+    <title>MainPage</title>
+</head>
+<body>
+<script>
+// 새로고침 시 뒤로가기 누적 안되게 하기
+window.onload = function() {
+    history.replaceState("", "");
+    window.onpopstate = function() {
+        history.replaceState("", "");
+    };
+};
+</script>
+
+<button onclick="location.href='/LoginPage'">로그인</button>
+
+</body>
+</html>
