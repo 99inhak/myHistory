@@ -44,7 +44,7 @@ public class LoginController {
         if (state == 1) { // 로그인 성공
             // 세션에 로그인 정보 추가
             httpSession.setAttribute("userSession", userInformation.getId());
-            return "redirect:/";
+            return "redirect:/LoggedInMainPage";
         } else if (state == 0) {
             redirectAttributes.addFlashAttribute("errorMessage", "아이디나 패스워드가 틀렸습니다.");
             return "redirect:/LoginPage";

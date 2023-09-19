@@ -43,6 +43,7 @@ public class MainController {
     // HttpServletRequest 객체는 http 요청에 대한 정보를 제공하는 인터페이스. 여기 들어온 사람 정보.
     public String MainPage(HttpServletRequest httpServletRequest, Model model) {
 
+
         // 현재 세션을 반환합니다. 이 메소드의 매개변수로 false를 전달하면, 현재 세션이 존재하지 않을 경우
         // null을 반환하고 새로운 세션을 생성하지 않습니다. (로그인 하는 순간 만들어야함)
         httpSession = httpServletRequest.getSession(false);
@@ -54,13 +55,19 @@ public class MainController {
             // true면 요청한 세션 ID가 유효.
             if (httpServletRequest.isRequestedSessionIdValid()) {
                 // 유효
-                // 세션 안에 있는 로그인할 때 저장한 저장된 정보 가져옴
-                String saved_user_information_session = (String)httpSession.getAttribute("Saved_User_Information_Sessions");
-                // 뷰에 로그인한 유저 세션 정보 전달
-                model.addAttribute("user_id", saved_user_information_session);
+                // 세션이 로그인 할 때 만들었던 세션인지 확인
+                if(httpSession.getAttribute("Saved_User_Information_Sessions") != null){
+                    // 세션 안에 있는 로그인할 때 저장한 저장된 정보 가져옴
+                    String saved_user_information_session = (String)httpSession.getAttribute("Saved_User_Information_Sessions");
+                    // 뷰에 로그인한 유저 세션 정보 전달
+                    model.addAttribute("user_id", saved_user_information_session);
 
-                // 로그인한 메인페이지 이동
-                return "LoggedInMainPage";
+                    // 로그인한 메인페이지 이동
+                    return "LoggedInMainPage";
+                }
+                else {
+                    return "MainPage";
+                }
             }
             //세션만료 페이지 이동
             else {
