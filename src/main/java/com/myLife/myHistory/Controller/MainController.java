@@ -1,14 +1,12 @@
 package com.myLife.myHistory.Controller;
 
-import com.myLife.myHistory.DATA.Entity.UserInformation;
-import com.myLife.myHistory.Service.UserLoginService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+
 
 
 // @Controller는 스프링 프레임워크에서 제공하는 어노테이션으로,
