@@ -21,6 +21,6 @@ public class SignUpController {
             redirectAttributes.addFlashAttribute("errorMessage", "빈 칸이 존재합니다. 입력해주세요!");
             return "redirect:/SignUpPage";
         }
-
+        return "";
     }
 }
