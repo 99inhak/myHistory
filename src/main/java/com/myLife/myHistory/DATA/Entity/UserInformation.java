@@ -5,6 +5,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+import java.util.Collection;
+
 // @Entity 어노테이션은 JPA(Java Persistence API)에서 제공하는 기능으로,
 // 클래스와 데이터베이스 테이블 간의 매핑을 선언하는 데 사용됩니다.
 // 이 어노테이션을 사용하면, 해당 클래스의 인스턴스는 데이터베이스의 테이블 레코드와 일대일로 매핑되며,
@@ -40,4 +42,6 @@ public class UserInformation {
 
     private String password; // 사용자 비밀번호
     private String username; // 사용자 이름
+
+
 }
